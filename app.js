@@ -296,8 +296,8 @@ async function autoUploadVideo(e) {
     const duration = Math.round(videoObj.duration);
 
     // Strict 30 Seconds Maximum Check
-    if (duration > 30) {
-      showToast(`Video is ${duration} seconds long. Maximum limit is 30 seconds!`, "error");
+    if (duration > 600) {
+      showToast(`Video is ${duration} seconds long. Maximum limit is 600 seconds!`, "error");
       document.getElementById('postVideoFile').value = '';
       statusBadge.innerText = "30s Limit Exceeded";
       statusBadge.className = "text-[10px] text-rose-400 font-bold";
@@ -514,7 +514,7 @@ function handleCreatePost(e) {
     link,
     thumbnail: finalThumbnail,
     videoUrl: finalVideo || '',
-    videoDuration: Math.min(30, uploadedVideoDuration || 30),
+    videoDuration: Math.min(600, uploadedVideoDuration || 600),
     description,
     ownerUid: currentUser.uid,
     ownerName: currentUser.name,
